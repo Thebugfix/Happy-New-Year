@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap');
+
+:root {
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #050505;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Canvas */
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  position: relative;
+  z-index: 10;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 3rem;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  animation: float 6s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.year-title {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
+}
+
+/* Grid Layout for Timer */
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+}
+
+.time-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+/* Spotify Container */
+.spotify-container {
+  margin-top: 2rem;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.spotify-container:hover {
+  opacity: 1;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .glass-card { padding: 1.5rem; }
+  .year-title { font-size: 4rem; }
+  .countdown-grid { gap: 0.5rem; }
+  .time-box { min-width: 70px; padding: 0.8rem; }
+  .time-value { font-size: 1.5rem; }
+}
